@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d7707a2-baa0-485b-9b9a-20537767e541" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/travel-management-system/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/travel-management-system/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/travel-management-system/Hello.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/travel-management-system/Hello.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +15,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "True-Fox"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;True-Fox&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -86,7 +82,13 @@
       <workItem from="1708057067524" duration="744000" />
       <workItem from="1708057948566" duration="242000" />
       <workItem from="1708058984662" duration="6000" />
-      <workItem from="1708068281780" duration="1523000" />
+      <workItem from="1708068281780" duration="3175000" />
+      <workItem from="1708084766383" duration="70000" />
+      <workItem from="1708135763418" duration="250000" />
+      <workItem from="1708164601053" duration="5000" />
+      <workItem from="1708405590519" duration="390000" />
+      <workItem from="1708940593324" duration="29000" />
+      <workItem from="1709544204470" duration="713000" />
     </task>
     <servers />
   </component>
