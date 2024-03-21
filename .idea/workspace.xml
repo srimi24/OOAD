@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="599a9320-0a57-488c-9432-55f084027495" name="Changes" comment="" />
+    <list default="true" id="599a9320-0a57-488c-9432-55f084027495" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mongotrial/controller/AirplaneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/airplane.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mongotrial/MongoTrialApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mongotrial/TravelManagementApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/mongotrial/MongoTrialApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/mongotrial/TravelManagementApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,13 +22,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="JavaAutoRunManager">
-    <enabled-run-configurations>
-      <run-configuration type="MavenRunConfiguration" name="MongoTrial [spring-boot:run]" />
-    </enabled-run-configurations>
   </component>
   <component name="KubernetesApiProvider">{
   &quot;contexts&quot;: [
@@ -51,47 +55,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.MongoTrial [spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MongoTrialApplication.executor&quot;: &quot;Run&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ambhikesh/IdeaProjects/ipsum&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "Maven.MongoTrial [clean].executor": "Run",
+    "Maven.MongoTrial [install].executor": "Run",
+    "Maven.MongoTrial [spring-boot:run].executor": "Run",
+    "Maven.MongoTrial [spring-boot:start].executor": "Run",
+    "Maven.MongoTrial [spring-boot:stop].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MongoTrialApplication.executor": "Run",
+    "git-widget-placeholder": "Mongo-Test",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Ambhikesh/Desktop/demo/MongoTrial_org - Copy/src/main/resources/templates/fragments",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ambhikesh\Desktop\demo\MongoTrial_org - Copy\src\main\resources\templates\fragments" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ambhikesh\Desktop\demo\MongoTrial_org - Copy\src\main\resources\templates\fragments" />
       <recent name="C:\Users\Ambhikesh\Desktop\demo\MongoTrial\src\main\resources\templates" />
       <recent name="C:\Users\Ambhikesh\Desktop\demo\MongoTrial\src\main\resources\static" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvn spring-boot:start" />
+      <command value="mvn spring-boot:stop" />
+      <command value="mvn clean" />
+      <command value="mvn install" />
       <command value="mvn spring-boot:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MongoTrialApplication">
+  <component name="RunManager" selected="Spring Boot.TravelManagementApplication">
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
-    <configuration name="MongoTrialApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="TravelManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="MongoTrial" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.mongotrial.MongoTrialApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.mongotrial.TravelManagementApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,11 +134,19 @@
       <workItem from="1710919974356" duration="2508000" />
       <workItem from="1710938917634" duration="483000" />
       <workItem from="1710939735738" duration="41000" />
-      <workItem from="1710939994960" duration="2107000" />
+      <workItem from="1710939994960" duration="2533000" />
+      <workItem from="1710953171775" duration="675000" />
+      <workItem from="1711008974171" duration="754000" />
+      <workItem from="1711027304706" duration="4330000" />
+      <workItem from="1711031719863" duration="259000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
