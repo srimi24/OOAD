@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="599a9320-0a57-488c-9432-55f084027495" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mongotrial/controller/AirplaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/airplane.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mongotrial/MongoTrialApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mongotrial/TravelManagementApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/mongotrial/MongoTrialApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/mongotrial/TravelManagementApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +20,9 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;contexts&quot;: [
@@ -71,7 +69,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.MongoTrialApplication.executor": "Run",
-    "git-widget-placeholder": "Mongo-Test",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Ambhikesh/Desktop/demo/MongoTrial_org - Copy/src/main/resources/templates/fragments",
@@ -139,6 +137,7 @@
       <workItem from="1711008974171" duration="754000" />
       <workItem from="1711027304706" duration="4330000" />
       <workItem from="1711031719863" duration="259000" />
+      <workItem from="1711075950189" duration="1307000" />
     </task>
     <servers />
   </component>
