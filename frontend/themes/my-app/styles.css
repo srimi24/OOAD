@@ -1,0 +1,20 @@
+@import url('./main-layout.css');    html {
+      --lumo-size-xl: 4rem;
+      --lumo-size-l: 3rem;
+      --lumo-size-m: 2.5rem;
+      --lumo-size-s: 2rem;
+      --lumo-size-xs: 1.75rem;
+      --lumo-space-xl: 1.875rem;
+      --lumo-space-l: 1.25rem;
+      --lumo-space-m: 0.625rem;
+      --lumo-space-s: 0.3125rem;
+      --lumo-space-xs: 0.1875rem;
+      --lumo-border-radius-s: calc(var(--lumo-size-m) / 6);
+      --lumo-border-radius-m: calc(var(--lumo-size-m) / 2);
+      --lumo-border-radius-l: var(--lumo-size-m);
+
+    }
+
+    [theme~="dark"] {
+
+    }
