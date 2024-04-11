@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4517e8c4-0653-464a-935b-9e49d3de5b5a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/MainLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/MainLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/MovieView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/MovieView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/addMovieView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/addMovieView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/deleteMovieView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/deleteMovieView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/updateMovieView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/updateMovieView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/addLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/movie/addLoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +39,16 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2eFAMzj8ia0jsglkimTrkmARp9k" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Maven.my-app [clean].executor": "Run",
     "Maven.my-app [install].executor": "Run",
-    "Maven.my-app [spring-boot:run].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -69,17 +64,12 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn install" />
-      <command value="mvn clean" />
-      <command value="mvn spring-boot:run" />
     </option>
   </component>
   <component name="RunManager">

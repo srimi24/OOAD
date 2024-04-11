@@ -1,6 +1,6 @@
 package com.example.application.views.movie;
 
-import com.example.application.controller.MovieController;
+import com.example.application.controller.UserController;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.dependency.Uses;
@@ -17,13 +17,13 @@ import com.vaadin.flow.router.Route;
 
 public class addLoginView extends Composite<VerticalLayout> {
 
-    private final MovieController movieController;
+    private final UserController userController;
 
 //    public addLoginView(MovieController movieController, MovieController movieController1) {
 //        this.movieController = movieController1;
 //    }
-    public addLoginView(MovieController movieController) {
-        this.movieController = movieController;
+    public addLoginView(UserController userController) {
+        this.userController = userController;
 
         LoginForm loginForm = new LoginForm();
 
@@ -31,7 +31,7 @@ public class addLoginView extends Composite<VerticalLayout> {
             String username = e.getUsername();
             String password = e.getPassword();
 
-            boolean userExists = movieController.checkUser(username, password);
+            boolean userExists = userController.checkUser(username, password);
             if (userExists) {
                 Notification.show("Login successful");
             } else {
