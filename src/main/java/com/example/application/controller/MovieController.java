@@ -39,7 +39,7 @@ public class MovieController {
             }
 
             System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
-            movieCollection = connectedClient.getDatabase("Movies").getCollection("movies");
+            movieCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("users");
             // ... rest of the initialization logic using connectedClient
         } catch (MongoException e) {
             // Handle MongoException in case of connection issues
@@ -84,6 +84,17 @@ public class MovieController {
         movieCollection.updateOne(filter, update);
     }
     // Other controller methods for CRUD operations (Create, Update, Delete) can be
+
+    public boolean checkUser(String checkUsername, String checkPassword) {
+        Bson filter = Filters.and(
+                Filters.eq("username",checkUsername),
+                Filters.eq("password",checkPassword)
+        );
+        Document findUser = movieCollection.find(filter).first();
+        if(findUser==null)
+            return false;
+        return true;
+    }
 
     public void addMovie(Movie movie){
         Document document = toDocument(movie);

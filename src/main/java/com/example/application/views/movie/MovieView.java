@@ -12,7 +12,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 @PageTitle("Movies")
 @Route(value = "movies", layout = MainLayout.class)

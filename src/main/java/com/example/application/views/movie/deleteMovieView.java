@@ -2,10 +2,8 @@ package com.example.application.views.movie;
 
 
 import com.example.application.controller.MovieController;
-import com.example.application.models.Movie;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -15,8 +13,6 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Random;
 
 @PageTitle("Delete Movie")
 @Route(value = "deleteMovies", layout = MainLayout.class)
