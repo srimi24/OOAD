@@ -1,9 +1,6 @@
 package com.example.application.views;
 
-import com.example.application.views.movie.MovieView;
-import com.example.application.views.movie.addMovieView;
-import com.example.application.views.movie.updateMovieView;
-import com.example.application.views.movie.deleteMovieView;
+import com.example.application.views.movie.LoginView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -53,10 +50,7 @@ public class MainLayout extends AppLayout {
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        nav.addItem(new SideNavItem("Movies", MovieView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
-        nav.addItem(new SideNavItem("Add Movies", addMovieView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
-        nav.addItem(new SideNavItem("Update Movies", updateMovieView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
-        nav.addItem(new SideNavItem("Delete Movies", deleteMovieView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+        nav.addItem(new SideNavItem("Login", LoginView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
         return nav;
     }
 
