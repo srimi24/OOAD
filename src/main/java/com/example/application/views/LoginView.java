@@ -12,9 +12,11 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 
 @PageTitle("Login View")
 @Route(value = "login", layout = MainLayout.class)
+@RouteAlias(value = "" , layout = MainLayout.class)
 @Uses(Icon.class)
 
 public class LoginView extends Composite<VerticalLayout> {
@@ -33,11 +35,17 @@ public class LoginView extends Composite<VerticalLayout> {
             String username = e.getUsername();
             String password = e.getPassword();
 
-            boolean userExists = userController.checkUser(username, password);
-            if (userExists) {
-                UI.getCurrent().navigate("user");
-            } else {
+            String User = userController.checkUser(username, password);
+            if (User==null)
+            {
                 Notification.show("User not found");
+            }
+            else
+            {
+                if(User.equals("user"))
+                    UI.getCurrent().navigate("user");
+                else if(User.equals("admin"))
+                    UI.getCurrent().navigate("admin");
             }
         });
 
