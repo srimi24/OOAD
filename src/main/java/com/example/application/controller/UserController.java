@@ -1,6 +1,7 @@
 package com.example.application.controller;
 
 import com.example.application.models.Movie;
+import com.example.application.models.User;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -20,11 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.application.controller.MovieController.preFlightChecks;
-
 @Controller
 public class UserController {
 
+
+    private List<User> userList;
     private MongoCollection<Document> userCollection;
 
     @Autowired
@@ -45,16 +46,29 @@ public class UserController {
             // Handle MongoException in case of connection issues
             throw new RuntimeException("Error connecting to MongoDB: " + e.getMessage());
         }
+
+
     }
+    // Other controller methods for CRUD operations (Create, Update, Delete) can be
 
     public boolean checkUser(String checkUsername, String checkPassword) {
+        System.out.println(checkUsername);
+        System.out.println(checkPassword);
         Bson filter = Filters.and(
-                Filters.eq("username",checkUsername),
-                Filters.eq("password",checkPassword)
+                Filters.eq("username", checkUsername),
+                Filters.eq("password", checkPassword)
         );
         Document findUser = userCollection.find(filter).first();
-        if(findUser==null)
+        if (findUser == null)
             return false;
         return true;
+    }
+
+    static boolean preFlightChecks(MongoClient mongoClient) {
+        Document pingCommand = new Document("ping", 1);
+        Document response = mongoClient.getDatabase("admin").runCommand(pingCommand);
+        System.out.println("=> Print result of the '{ping: 1}' command.");
+        System.out.println(response.toJson(JsonWriterSettings.builder().indent(true).build()));
+        return response.get("ok", Number.class).intValue() == 1;
     }
 }

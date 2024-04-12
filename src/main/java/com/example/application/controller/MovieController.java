@@ -39,7 +39,7 @@ public class MovieController {
             }
 
             System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
-            movieCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("users");
+            movieCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("movies");
             // ... rest of the initialization logic using connectedClient
         } catch (MongoException e) {
             // Handle MongoException in case of connection issues
