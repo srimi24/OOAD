@@ -18,12 +18,8 @@ public class UserView extends VerticalLayout {
 
         // Creating router links for booking different types of travel
         RouterLink bookFlightLink = new RouterLink("Book Flight", BookFlightView.class);
-        RouterLink bookBusLink = new RouterLink("Book Bus", BookBusView.class);
-        RouterLink bookCabLink = new RouterLink("Book Cab", BookCabView.class);
         RouterLink bookTrainLink = new RouterLink("Book Train", BookTrainView.class);
 
-        add(bookCabLink);
-        add(bookBusLink);
         add(bookFlightLink);
         add(bookTrainLink);
 
@@ -31,11 +27,9 @@ public class UserView extends VerticalLayout {
 
         // Creating router links for booking different types of travel
         RouterLink bookHotelLink = new RouterLink("Book Hotel", BookHotelView.class);
-        RouterLink bookResortLink = new RouterLink("Book Resort", BookResortView.class);
         RouterLink bookHomestayLink = new RouterLink("Book Homestay", BookHomestayView.class);
 
         add(bookHotelLink);
-        add(bookResortLink);
         add(bookHomestayLink);
 
         add(new H3("Book Package"));

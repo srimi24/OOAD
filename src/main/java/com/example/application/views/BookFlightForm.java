@@ -21,14 +21,13 @@ public class BookFlightForm extends FormLayout {
 
     private final Dialog dialog;
     private final IntegerField numberOfSeats;
-    private final Button bookButton;
 
     public BookFlightForm(Dialog dialog, Flight flight) {
         this.dialog = dialog;
 
         numberOfSeats = new IntegerField("Number of seats");
 
-        bookButton = new Button("Book");
+        Button bookButton = new Button("Book");
         bookButton.addClickListener(event -> {
             bookFlight(flight);
         });
@@ -38,7 +37,7 @@ public class BookFlightForm extends FormLayout {
 
     private void bookFlight(Flight flight) {
 
-        if (numberOfSeats.getValue() > flight.getNumberOfSeatsInFlight()) {
+        if (numberOfSeats.getValue() > flight.getNumberOfSeatsInFlight() && numberOfSeats.getValue() < 1) {
             Notification.show("Number of seats requested exceeds available seats.");
             return; // Abort booking
         }
@@ -50,7 +49,7 @@ public class BookFlightForm extends FormLayout {
         BookingContext bookingContext = new BookingContext();
 
         Map<String, String> flightBookingDetails = new HashMap<>();
-        flightBookingDetails.put("username", flight.getFlightNumber());
+        flightBookingDetails.put("username", Session.getUsername());
         flightBookingDetails.put("flight_number", flight.getFlightNumber());
         flightBookingDetails.put("airline", flight.getAirline());
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
