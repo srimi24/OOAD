@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4517e8c4-0653-464a-935b-9e49d3de5b5a" name="Changes" comment="&quot;Able to navigate to another page when login is clicked&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/manager/BookingManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/manager/ReviewManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/FlightBooking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/HotelBooking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/TrainBooking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/VillaBooking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ReviewBookingView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ReviewForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/HotelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookingView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/UserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +129,7 @@
       <workItem from="1711964774970" duration="38000" />
       <workItem from="1713018111805" duration="917000" />
       <workItem from="1713019053171" duration="12426000" />
-      <workItem from="1713056631715" duration="12710000" />
+      <workItem from="1713056631715" duration="13209000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Able to navigate to another page when login is clicked&quot;">
       <option name="closed" value="true" />
