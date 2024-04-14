@@ -69,7 +69,8 @@ public class HotelController {
     }
 
     public List<Hotel> getAllHotels() {
-        hotelList = hotelCollection.find().map(this::toHotel).into(new ArrayList<>());
+        Bson filter = Filters.or(Filters.ne("numberOfDeluxeRooms", 0), Filters.ne("numberOfStandardRooms", 0));
+        hotelList = hotelCollection.find(filter).map(this::toHotel).into(new ArrayList<>());
         return hotelList;
     }
 
