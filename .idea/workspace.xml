@@ -5,14 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4517e8c4-0653-464a-935b-9e49d3de5b5a" name="Changes" comment="&quot;Able to navigate to another page when login is clicked&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/TrainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/Train.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/TrainBookingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookTrainForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/HotelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/VillaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/Hotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/Villa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/HotelBookingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/VillaBookingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookHotelForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookVillaForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookVillaView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookCabView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/FlightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/FlightController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/TrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/TrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/FlightBookingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/FlightBookingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/TrainBookingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/TrainBookingStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookFlightForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookFlightForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookResortView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookFlightView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookFlightView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookHomestayView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookHotelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookHotelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookTrainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookTrainForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookTrainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookTrainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/UserView.java" afterDir="false" />
     </list>
@@ -73,31 +84,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.my-app [clean,install].executor": "Run",
-    "Maven.my-app [clean].executor": "Run",
-    "Maven.my-app [install].executor": "Run",
-    "Maven.my-app [spring-boot:run].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Application.executor": "Run",
-    "git-widget-placeholder": "booking",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.my-app [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.my-app [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.my-app [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.my-app [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;booking&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
@@ -136,7 +147,8 @@
       <workItem from="1711953532139" duration="246000" />
       <workItem from="1711964774970" duration="38000" />
       <workItem from="1713018111805" duration="917000" />
-      <workItem from="1713019053171" duration="11582000" />
+      <workItem from="1713019053171" duration="12426000" />
+      <workItem from="1713056631715" duration="7620000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Able to navigate to another page when login is clicked&quot;">
       <option name="closed" value="true" />

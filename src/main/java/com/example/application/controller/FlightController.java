@@ -62,8 +62,8 @@ public class FlightController {
     }
 
     public List<Flight> getAllFlights() {
-        // Return the list of all flights
-        flightList = flightCollection.find().map(this::toFlight).into(new ArrayList<>());
+        Bson filter = Filters.ne("numberOfSeatsInFlight", 0);
+        flightList = flightCollection.find(filter).map(this::toFlight).into(new ArrayList<>());
         return flightList;
     }
 

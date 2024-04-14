@@ -1,5 +1,6 @@
 package com.example.application.views.movie;
 
+import com.example.application.views.BookHotelView;
 import com.example.application.views.Session;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
@@ -27,10 +28,10 @@ public class UserView extends VerticalLayout {
 
         // Creating router links for booking different types of travel
         RouterLink bookHotelLink = new RouterLink("Book Hotel", BookHotelView.class);
-        RouterLink bookHomestayLink = new RouterLink("Book Homestay", BookHomestayView.class);
+        RouterLink bookVillaLink = new RouterLink("Book Villa", BookVillaView.class);
 
         add(bookHotelLink);
-        add(bookHomestayLink);
+        add(bookVillaLink);
 
         add(new H3("Book Package"));
 

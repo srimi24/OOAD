@@ -37,9 +37,14 @@ public class BookFlightForm extends FormLayout {
 
     private void bookFlight(Flight flight) {
 
-        if (numberOfSeats.getValue() > flight.getNumberOfSeatsInFlight() && numberOfSeats.getValue() < 1) {
+        if (numberOfSeats.getValue() > flight.getNumberOfSeatsInFlight()) {
             Notification.show("Number of seats requested exceeds available seats.");
-            return; // Abort booking
+            return;
+        }
+
+        if (numberOfSeats.getValue() < 1) {
+            Notification.show("Number of seats should be at least 1.");
+            return;
         }
 
         FlightController flightController = new FlightController();
@@ -59,6 +64,7 @@ public class BookFlightForm extends FormLayout {
         flightBookingDetails.put("total_price", String.valueOf(flight.getPrice() * numberOfSeats.getValue()));
         DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         flightBookingDetails.put("date_booked", LocalDate.now().format(DATE_FORMATTER));
+        flightBookingDetails.put("paid", "NO");
 
         bookingContext.setBookingStrategy(new FlightBookingStrategy());
         bookingContext.executeBooking(flightBookingDetails);

@@ -37,9 +37,14 @@ public class BookTrainForm extends FormLayout {
 
     private void bookTrain(Train train) {
 
-        if (numberOfSeats.getValue() > train.getNumberOfSeatsInTrain() && numberOfSeats.getValue() < 1) {
+        if (numberOfSeats.getValue() > train.getNumberOfSeatsInTrain()) {
             Notification.show("Number of seats requested exceeds available seats.");
-            return; // Abort booking
+            return;
+        }
+
+        if (numberOfSeats.getValue() < 1) {
+            Notification.show("Number of seats should be at least 1.");
+            return;
         }
 
         TrainController trainController = new TrainController();
@@ -59,6 +64,7 @@ public class BookTrainForm extends FormLayout {
         trainBookingDetails.put("total_price", String.valueOf(train.getPrice() * numberOfSeats.getValue()));
         DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         trainBookingDetails.put("date_booked", LocalDate.now().format(DATE_FORMATTER));
+        trainBookingDetails.put("paid", "NO");
 
         bookingContext.setBookingStrategy(new TrainBookingStrategy());
         bookingContext.executeBooking(trainBookingDetails);

@@ -20,6 +20,7 @@ import java.util.TimerTask;
 
 
 @Route(value = "trains")
+@PageTitle("Book Train")
 public class BookTrainView extends VerticalLayout {
 
     private Timer timer;

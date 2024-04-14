@@ -34,7 +34,8 @@ public class FlightBookingStrategy implements BookingStrategy {
                 .append("arrival_date", bookingDetails.get("arrival_date"))
                 .append("seats_booked", bookingDetails.get("seats_booked"))
                 .append("total_price", bookingDetails.get("total_price"))
-                .append("date_booked", bookingDetails.get("date_booked"));
+                .append("date_booked", bookingDetails.get("date_booked"))
+                .append("paid", bookingDetails.get("paid"));
 
         flightBookingCollection.insertOne(flightBooking);
     }
