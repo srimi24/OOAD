@@ -2,6 +2,7 @@ package com.example.application.views.movie;
 
 import com.example.application.controller.UserController;
 import com.example.application.views.MainLayout;
+import com.example.application.views.Session;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.Uses;
@@ -42,6 +43,7 @@ public class LoginView extends Composite<VerticalLayout> {
             }
             else
             {
+                Session.login(username);
                 if(User.equals("user"))
                     UI.getCurrent().navigate("user");
                 else if(User.equals("admin"))
