@@ -17,7 +17,7 @@ import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@Route(value = "view-bookings")
+@Route(value = "view-bookings", layout = MainLayout.class)
 @PageTitle("View your Bookings")
 public class BookingView extends VerticalLayout {
     public BookingView() {

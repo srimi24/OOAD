@@ -1,4 +1,4 @@
-package com.example.application.views.movie;
+package com.example.application.views;
 
 import com.example.application.controller.VillaController;
 import com.example.application.models.Villa;
@@ -14,7 +14,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@Route(value = "villas")
+@Route(value = "villas", layout = MainLayout.class)
 @PageTitle("Book Villa")
 public class BookVillaView extends VerticalLayout {
 

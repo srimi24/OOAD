@@ -19,14 +19,10 @@ import com.vaadin.flow.router.RouteAlias;
 @Route(value = "login", layout = MainLayout.class)
 @RouteAlias(value = "" , layout = MainLayout.class)
 @Uses(Icon.class)
-
 public class LoginView extends Composite<VerticalLayout> {
 
     private final UserController userController;
 
-//    public addLoginView(MovieController movieController, MovieController movieController1) {
-//        this.movieController = movieController1;
-//    }
     public LoginView(UserController userController) {
         this.userController = userController;
 

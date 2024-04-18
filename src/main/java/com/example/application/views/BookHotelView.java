@@ -13,7 +13,7 @@ import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@Route(value = "hotels")
+@Route(value = "hotels", layout = MainLayout.class)
 @PageTitle("Book Hotel")
 public class BookHotelView extends VerticalLayout {
 

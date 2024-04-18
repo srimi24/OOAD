@@ -1,4 +1,4 @@
-package com.example.application.views.movie;
+package com.example.application.views;
 
 import com.example.application.views.BookHotelView;
 import com.example.application.views.BookingView;

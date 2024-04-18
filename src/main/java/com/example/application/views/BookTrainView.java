@@ -1,4 +1,4 @@
-package com.example.application.views.movie;
+package com.example.application.views;
 
 import com.example.application.controller.TrainController;
 import com.example.application.models.Train;
@@ -19,7 +19,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-@Route(value = "trains")
+@Route(value = "trains", layout = MainLayout.class)
 @PageTitle("Book Train")
 public class BookTrainView extends VerticalLayout {
 

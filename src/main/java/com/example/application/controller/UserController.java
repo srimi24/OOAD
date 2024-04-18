@@ -12,7 +12,10 @@ import org.bson.json.JsonWriterSettings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import javax.print.Doc;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class UserController {
@@ -55,6 +58,32 @@ public class UserController {
         if (findUser == null)
             return null;
         return findUser.get("role", String.class);
+    }
+
+    public String getRole(String Username){
+        Bson filter = Filters.eq("username", Username);
+        Document findUserRole = userCollection.find(filter).first();
+        return (findUserRole!=null)? findUserRole.get("role", String.class) : null;
+    }
+
+    private User toUser(Document doc){
+        return new User(
+            doc.getString("username"),
+            doc.getString("password"),
+            doc.getString("role")
+        );
+    }
+
+    public List<User> getAllUsers(){
+        Bson filter = Filters.ne("role", "admin");
+        userList = userCollection.find(filter).map(this::toUser).into(new ArrayList<>());
+        return userList;
+    }
+
+    public void deleteUser(User user){
+        Bson filter = Filters.eq("username", user.getUsername());
+        System.out.println(userCollection.find(filter).first());
+        userCollection.deleteOne(userCollection.find(filter).first());
     }
 
     static boolean preFlightChecks(MongoClient mongoClient) {

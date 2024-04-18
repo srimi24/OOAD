@@ -1,5 +1,6 @@
 package com.example.application.views;
 
+import com.example.application.controller.UserController;
 import com.example.application.views.movie.LoginView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -14,6 +15,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import org.vaadin.lineawesome.LineAwesomeIcon;
 
+import java.util.Objects;
+
 /**
  * The main view is a top-level placeholder for other views.
  */
@@ -21,7 +24,10 @@ public class MainLayout extends AppLayout {
 
     private H2 viewTitle;
 
-    public MainLayout() {
+    UserController userController;
+
+    public MainLayout(UserController userController) {
+        this.userController = userController;
         setPrimarySection(Section.DRAWER);
         addDrawerContent();
         addHeaderContent();
@@ -50,14 +56,34 @@ public class MainLayout extends AppLayout {
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        nav.addItem(new SideNavItem("Login", LoginView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+        if(Session.getUsername()==null) {
+            nav.addItem(new SideNavItem("Login", LoginView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+        }else{
+            if(Objects.equals(userController.getRole(Session.getUsername()), "admin")){
+                //admin routes
+                nav.addItem(new SideNavItem("Dashboard", AdminView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Manage Users", ManageUsersView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Manage Services", ManageServiceView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Manage Bookings", ManageBookingView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+
+            }else{
+                //user routes
+                nav.addItem(new SideNavItem("Book Flights", BookFlightView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Book Hotels", BookHotelView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Book Villa", BookVillaView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Book Trains", BookTrainView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Book Packages", BookPackageView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("View Bookings", BookingView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+                nav.addItem(new SideNavItem("Review Booking", ReviewBookingView.class, LineAwesomeIcon.LONG_ARROW_ALT_RIGHT_SOLID.create()));
+            }
+            return nav;
+        }
         return nav;
     }
 
     private Footer createFooter() {
-        Footer layout = new Footer();
 
-        return layout;
+        return new Footer();
     }
 
     @Override
