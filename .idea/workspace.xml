@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4517e8c4-0653-464a-935b-9e49d3de5b5a" name="Changes" comment="&quot;Partial implementation of Admin functionalities&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageBookingView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageServiceView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/builders/PackageBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/PackageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/Package.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/themes/my-app/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/themes/my-app/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookFlightView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookFlightView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookHotelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookHotelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookPackageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookPackageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookTrainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookTrainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookVillaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookVillaView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookingView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/MainLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/MainLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageUsersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageUsersView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/ReviewBookingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ReviewBookingView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/UserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,13 +49,6 @@
 }</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -128,6 +107,13 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -147,6 +133,7 @@
       <workItem from="1713244956172" duration="630000" />
       <workItem from="1713293648338" duration="2486000" />
       <workItem from="1713424875279" duration="594000" />
+      <workItem from="1713532038691" duration="4983000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Able to navigate to another page when login is clicked&quot;">
       <option name="closed" value="true" />
