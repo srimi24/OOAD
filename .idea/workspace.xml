@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4517e8c4-0653-464a-935b-9e49d3de5b5a" name="Changes" comment="&quot;Partial implementation of Admin functionalities&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/builders/PackageBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/PackageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +129,8 @@
       <workItem from="1713244956172" duration="630000" />
       <workItem from="1713293648338" duration="2486000" />
       <workItem from="1713424875279" duration="594000" />
-      <workItem from="1713532038691" duration="4983000" />
+      <workItem from="1713532038691" duration="5439000" />
+      <workItem from="1713537541946" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Able to navigate to another page when login is clicked&quot;">
       <option name="closed" value="true" />
