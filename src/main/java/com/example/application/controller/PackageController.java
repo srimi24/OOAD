@@ -47,30 +47,23 @@ public class PackageController {
 
             // Create a new package using the builder pattern
             PackageBuilder packageBuilder = new PackageBuilder();
-            packageBuilder.setPackageName(packageDetails.get("packageName"));
-            packageBuilder.setTotalPrice(Double.parseDouble(packageDetails.get("totalPrice")));
-            packageBuilder.setFlight(flightData.getString("flightNumber"), flightData.getString("airline"),
-                    flightData.getDate("departureDate"), flightData.getDate("arrivalDate"));
-            packageBuilder.setHotel(hotelData.getString("name"), hotelData.getString("location"),
-                    hotelData.getInteger("numberOfRooms"), hotelData.getDouble("roomPricePerNight"));
-            packageBuilder.setVilla(villaData.getString("villaName"), villaData.getString("address"),
-                    villaData.getInteger("numberOfRooms"), villaData.getString("hasPrivateBathroom"),
-                    villaData.getString("hasKitchenFacilities"), villaData.getDouble("pricePerNight"));
-            packageBuilder.setTrain(trainData.getString("trainNumber"), trainData.getString("trainName"),
-                    trainData.getDate("departureDate"), trainData.getDate("arrivalDate"),
-                    trainData.getString("departureStation"), trainData.getString("arrivalStation"));
+            packageBuilder.startNewPackage(packageDetails.get("packageName"), Double.parseDouble(packageDetails.get("totalPrice")))
+                    .addFlight(packageDetails.get("flightNumber"))
+                    .addTrain(packageDetails.get("trainNumber"))
+                    .addHotel(packageDetails.get("hotelName"))
+                    .setVilla(packageDetails.get("villaName"));
 
             Package createdPackage = packageBuilder.build();
 
             // Save the created package to the database
-            Document packageDocument = new Document("name", createdPackage.getName())
-                    .append("totalPrice", createdPackage.getTotalPrice())
-                    .append("flight", createdPackage.getFlight())
-                    .append("hotel", createdPackage.getHotel())
-                    .append("villa", createdPackage.getVilla())
-                    .append("train", createdPackage.getTrain());
-
-            packageCollection.insertOne(packageDocument);
+//            Document packageDocument = new Document("name", createdPackage.getPackageName())
+//                    .append("totalPrice", createdPackage.getTotalPrice())
+//                    .append("flights", createdPackage.getFlights())
+//                    .append("trains", createdPackage.getTrains())
+//                    .append("hotels", createdPackage.getHotels())
+//                    .append("villa", createdPackage.getVillas());
+//
+//            packageCollection.insertOne(packageDocument);
 
             // Optionally, you can perform additional operations here
         } catch (Exception e) {
