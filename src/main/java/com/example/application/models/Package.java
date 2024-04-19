@@ -5,19 +5,18 @@ import java.util.List;
 
 public class Package {
     private String packageName;
-    private List<Flight> flights;
-    private List<Train> trains;
-    private List<Hotel> hotels;
-    private List<Villa> villas;
+    private List<String> flightNumbers; // Only store flight numbers for comparison
+    private List<String> trainNumbers; // Only store train numbers for comparison
+    private List<String> hotelNames; // Only store hotel names for comparison
+    private String villaName; // Only store villa name for comparison
     private double totalPrice;
 
     public Package(String packageName, double totalPrice) {
         this.packageName = packageName;
         this.totalPrice = totalPrice;
-        this.flights = new ArrayList<>();
-        this.trains = new ArrayList<>();
-        this.hotels = new ArrayList<>();
-        this.villas = new ArrayList<>();
+        this.flightNumbers = new ArrayList<>();
+        this.trainNumbers = new ArrayList<>();
+        this.hotelNames = new ArrayList<>();
     }
 
     public String getPackageName() {
@@ -28,36 +27,36 @@ public class Package {
         this.packageName = packageName;
     }
 
-    public List<Flight> getFlights() {
-        return flights;
+    public List<String> getFlightNumbers() {
+        return flightNumbers;
     }
 
-    public void addFlight(Flight flight) {
-        this.flights.add(flight);
+    public void addFlightNumber(String flightNumber) {
+        this.flightNumbers.add(flightNumber);
     }
 
-    public List<Train> getTrains() {
-        return trains;
+    public List<String> getTrainNumbers() {
+        return trainNumbers;
     }
 
-    public void addTrain(Train train) {
-        this.trains.add(train);
+    public void addTrainNumber(String trainNumber) {
+        this.trainNumbers.add(trainNumber);
     }
 
-    public List<Hotel> getHotels() {
-        return hotels;
+    public List<String> getHotelNames() {
+        return hotelNames;
     }
 
-    public void addHotel(Hotel hotel) {
-        this.hotels.add(hotel);
+    public void addHotelName(String hotelName) {
+        this.hotelNames.add(hotelName);
     }
 
-    public List<Villa> getVillas() {
-        return villas;
+    public String getVillaName() {
+        return villaName;
     }
 
-    public void addVilla(Villa villa) {
-        this.villas.add(villa);
+    public void setVillaName(String villaName) {
+        this.villaName = villaName;
     }
 
     public double getTotalPrice() {
