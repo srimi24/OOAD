@@ -1,12 +1,16 @@
 package com.example.application.controller;
 
 import com.example.application.models.Villa;
+import com.example.application.models.VillaBooking;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.bson.json.JsonWriterSettings;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
@@ -16,6 +20,7 @@ import java.util.List;
 public class VillaController {
     private List<Villa> villaList;
     private MongoCollection<Document> villaCollection;
+    private MongoCollection<Document> villaBookingCollection;
 
     public VillaController() {
         try {
@@ -29,6 +34,7 @@ public class VillaController {
 
             System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
             villaCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("villas");
+            villaBookingCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("villaBookings");
             // ... rest of the initialization logic using connectedClient
         } catch (MongoException e) {
             // Handle MongoException in case of connection issues
@@ -58,5 +64,11 @@ public class VillaController {
         System.out.println("=> Print result of the '{ping: 1}' command.");
         System.out.println(response.toJson(JsonWriterSettings.builder().indent(true).build()));
         return response.get("ok", Number.class).intValue() == 1;
+    }
+
+    public void deletehotelBooking(VillaBooking villaBooking) {
+        ObjectId id = new ObjectId(villaBooking.getId());
+        Bson filter = Filters.eq("_id", id);
+        villaBookingCollection.deleteOne(villaBookingCollection.find(filter).first());
     }
 }

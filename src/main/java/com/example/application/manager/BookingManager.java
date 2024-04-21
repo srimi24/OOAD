@@ -113,23 +113,44 @@ public class BookingManager {
         return flightBookingList;
     }
 
+    public List<FlightBooking> getAllBookingsFlight(){
+        flightBookingList = flightBookingCollection.find().map(this::toFlightBooking).into(new ArrayList<>());
+        return flightBookingList;
+    }
+
     public List<TrainBooking> getAllTrainBookings() {
         Bson filter = Filters.eq("username", Session.getUsername());
+        trainBookingList = trainBookingCollection.find(filter).map(this::toTrainBooking).into(new ArrayList<>());
+        return trainBookingList;
+    }
+
+    public List<TrainBooking> getAllBookingsTrain(){
         trainBookingList = trainBookingCollection.find().map(this::toTrainBooking).into(new ArrayList<>());
         return trainBookingList;
     }
 
     public List<HotelBooking> getAllHotelBookings() {
         Bson filter = Filters.eq("username", Session.getUsername());
+        hotelBookingList = hotelBookingCollection.find(filter).map(this::toHotelBooking).into(new ArrayList<>());
+        return hotelBookingList;
+    }
+
+    public List<HotelBooking> getAllBookingsHotel(){
         hotelBookingList = hotelBookingCollection.find().map(this::toHotelBooking).into(new ArrayList<>());
         return hotelBookingList;
     }
 
     public List<VillaBooking> getAllVillaBookings() {
         Bson filter = Filters.eq("username", Session.getUsername());
+        villaBookingList = villaBookingCollection.find(filter).map(this::toVillaBooking).into(new ArrayList<>());
+        return villaBookingList;
+    }
+
+    public List<VillaBooking> getAllBookingsVilla(){
         villaBookingList = villaBookingCollection.find().map(this::toVillaBooking).into(new ArrayList<>());
         return villaBookingList;
     }
+
 
     static boolean preFlightChecks(MongoClient mongoClient) {
         Document pingCommand = new Document("ping", 1);

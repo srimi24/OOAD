@@ -1,6 +1,7 @@
 package com.example.application.controller;
 
 import com.example.application.models.User;
+import com.helger.css.reader.errorhandler.DoNothingCSSInterpretErrorHandler;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -92,5 +93,11 @@ public class UserController {
         System.out.println("=> Print result of the '{ping: 1}' command.");
         System.out.println(response.toJson(JsonWriterSettings.builder().indent(true).build()));
         return response.get("ok", Number.class).intValue() == 1;
+    }
+
+    public void updateUser(User user){
+        Bson filter = Filters.eq("username", user.getUsername());
+        Document updateDocument = new Document("$set", new Document("role", user.getRole()));
+        userCollection.updateOne(filter, updateDocument);
     }
 }

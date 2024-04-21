@@ -1,6 +1,7 @@
 package com.example.application.controller;
 
 import com.example.application.models.Hotel;
+import com.example.application.models.HotelBooking;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -11,6 +12,7 @@ import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.json.JsonWriterSettings;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ import java.util.List;
 public class HotelController {
     private List<Hotel> hotelList;
     private MongoCollection<Document> hotelCollection;
+    private MongoCollection<Document> hotelBookingCollection;
 
     public HotelController() {
         try {
@@ -33,6 +36,7 @@ public class HotelController {
 
             System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
             hotelCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("hotels");
+            hotelBookingCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("hotelBookings");
             // ... rest of the initialization logic using connectedClient
         } catch (MongoException e) {
             // Handle MongoException in case of connection issues
@@ -74,11 +78,33 @@ public class HotelController {
         return hotelList;
     }
 
+    public void deletehotelBooking(HotelBooking hotelBooking) {
+        ObjectId id = new ObjectId(hotelBooking.getId());
+        Bson filter = Filters.eq("_id", id);
+        hotelBookingCollection.deleteOne(hotelBookingCollection.find(filter).first());
+    }
+
     static boolean preFlightChecks(MongoClient mongoClient) {
         Document pingCommand = new Document("ping", 1);
         Document response = mongoClient.getDatabase("admin").runCommand(pingCommand);
         System.out.println("=> Print result of the '{ping: 1}' command.");
         System.out.println(response.toJson(JsonWriterSettings.builder().indent(true).build()));
         return response.get("ok", Number.class).intValue() == 1;
+    }
+
+
+    public void updateHotelBooking(HotelBooking hotelBooking) {
+        ObjectId id = new ObjectId(hotelBooking.getId());
+        Bson filter = Filters.eq("_id", id);
+
+        Document updateDoc = new Document("$set", new Document()
+                .append("hotelName", hotelBooking.getHotelName())
+                .append("location", hotelBooking.getLocation())
+                .append("deluxeRoomsBooked", hotelBooking.getDeluxeRoomsBooked())
+                .append("standardRoomsBooked", hotelBooking.getStandardRoomsBooked())
+                .append("totalPrice", hotelBooking.getTotalPrice())
+                .append("dateBooked", hotelBooking.getDateBooked())
+                .append("paid", hotelBooking.getPaid()));
+        hotelBookingCollection.updateOne(filter, updateDoc);
     }
 }

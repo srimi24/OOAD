@@ -1,6 +1,7 @@
 package com.example.application.controller;
 
 import com.example.application.models.Flight;
+import com.example.application.models.FlightBooking;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -15,6 +16,7 @@ import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.json.JsonWriterSettings;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -26,6 +28,7 @@ import java.util.Random;
 public class FlightController {
     private List<Flight> flightList;
     private MongoCollection<Document> flightCollection;
+    private MongoCollection<Document> flightBookingCollection;
 
     public FlightController() {
         try {
@@ -39,6 +42,7 @@ public class FlightController {
 
             System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
             flightCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("flights");
+            flightBookingCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("flightBookings");
             // ... rest of the initialization logic using connectedClient
         } catch (MongoException e) {
             // Handle MongoException in case of connection issues
@@ -81,6 +85,31 @@ public class FlightController {
             System.out.println("Failed to update seats for flight " + flightNumber);
         }
     }
+
+    public void deleteFlightBooking(FlightBooking flightBooking){
+        ObjectId id = new ObjectId(flightBooking.getId());
+        Bson filter = Filters.eq("_id", id);
+        flightBookingCollection.deleteOne(flightBookingCollection.find(filter).first());
+    }
+
+    public void updateFlightBooking(FlightBooking flightBooking) {
+        ObjectId id = new ObjectId(flightBooking.getId());
+        Bson filter = Filters.eq("_id", id);
+
+        Document updateDoc = new Document();
+        updateDoc.append("username", flightBooking.getUsername());
+        updateDoc.append("flight_number", flightBooking.getFlightNumber());
+        updateDoc.append("airline", flightBooking.getFlightName());
+        updateDoc.append("departure_date", flightBooking.getDepartureDate());
+        updateDoc.append("arrival_date", flightBooking.getArrivalDate());
+        updateDoc.append("seats_booked", flightBooking.getSeatsBooked());
+        updateDoc.append("total_price", flightBooking.getTotalPrice());
+        updateDoc.append("date_booked", flightBooking.getDateBooked());
+        updateDoc.append("paid", flightBooking.getPaid());
+
+        flightBookingCollection.deleteOne(flightBookingCollection.find(filter).first());
+    }
+
 
     static boolean preFlightChecks(MongoClient mongoClient) {
         Document pingCommand = new Document("ping", 1);

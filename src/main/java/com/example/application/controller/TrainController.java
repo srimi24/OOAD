@@ -1,6 +1,8 @@
 package com.example.application.controller;
 
+import com.example.application.models.FlightBooking;
 import com.example.application.models.Train;
+import com.example.application.models.TrainBooking;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -15,6 +17,7 @@ import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.json.JsonWriterSettings;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -26,6 +29,7 @@ import java.util.Random;
 public class TrainController {
     private List<Train> trainList;
     private MongoCollection<Document> trainCollection;
+    private MongoCollection<Document> trainBookingCollection;
 
     public TrainController() {
         try {
@@ -39,6 +43,7 @@ public class TrainController {
 
             System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
             trainCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("trains");
+            trainBookingCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("trainBookings");
             // ... rest of the initialization logic using connectedClient
         } catch (MongoException e) {
             // Handle MongoException in case of connection issues
@@ -82,11 +87,36 @@ public class TrainController {
         }
     }
 
+    public void deleteTrainBooking(TrainBooking trainBooking){
+        ObjectId id = new ObjectId(trainBooking.getId());
+        Bson filter = Filters.eq("_id", id);
+        trainBookingCollection.deleteOne(trainBookingCollection.find(filter).first());
+    }
+
     static boolean preFlightChecks(MongoClient mongoClient) {
         Document pingCommand = new Document("ping", 1);
         Document response = mongoClient.getDatabase("admin").runCommand(pingCommand);
         System.out.println("=> Print result of the '{ping: 1}' command.");
         System.out.println(response.toJson(JsonWriterSettings.builder().indent(true).build()));
         return response.get("ok", Number.class).intValue() == 1;
+    }
+
+    public void updateTrainBooking(TrainBooking trainBooking) {
+        ObjectId id = new ObjectId(trainBooking.getId());
+        Bson filter = Filters.eq("_id", id);
+
+        Document updateDoc = new Document();
+        updateDoc.append("username", trainBooking.getUsername());
+        updateDoc.append("train_number", trainBooking.getTrainNumber());
+        updateDoc.append("train_name", trainBooking.getTrainName());
+        updateDoc.append("departure_date", trainBooking.getDepartureDate());
+        updateDoc.append("arrival_date", trainBooking.getArrivalDate());
+        updateDoc.append("seats_booked", trainBooking.getSeatsBooked());
+        updateDoc.append("total_price", trainBooking.getTotalPrice());
+        updateDoc.append("date_booked", trainBooking.getDateBooked());
+        updateDoc.append("paid", trainBooking.getPaid());
+
+        trainBookingCollection.updateOne(filter, new Document("$set", updateDoc));
+
     }
 }
