@@ -1,5 +1,82 @@
+//import com.example.application.builders.PackageBuilder;
+//import com.example.application.models.Package;
+//import com.mongodb.MongoException;
+//import com.mongodb.client.MongoClient;
+//import com.mongodb.client.MongoClients;
+//import com.mongodb.client.MongoCollection;
+//import com.mongodb.client.MongoDatabase;
+//import com.mongodb.client.model.Filters;
+//import org.bson.Document;
+//import org.springframework.stereotype.Controller;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Map;
+//
+//@Controller
+//public class PackageController {
+//    private MongoCollection<Document> packageCollection;
+//    private MongoCollection<Document> flightCollection;
+//    private MongoCollection<Document> trainCollection;
+//    private MongoCollection<Document> hotelCollection;
+//    private MongoCollection<Document> villaCollection;
+//
+//    public PackageController() {
+//        try {
+//            MongoClient connectedClient = MongoClients.create("mongodb://localhost:27017/");
+//            MongoDatabase database = connectedClient.getDatabase("Travel_Management_System");
+//
+//            packageCollection = database.getCollection("packages");
+//            flightCollection = database.getCollection("flights");
+//            trainCollection = database.getCollection("trains");
+//            hotelCollection = database.getCollection("hotels");
+//            villaCollection = database.getCollection("villas");
+//        } catch (MongoException e) {
+//            throw new RuntimeException("Error connecting to MongoDB: " + e.getMessage());
+//        }
+//    }
+//
+//    public void displayPackageDetails(String packageId) {
+//        try {
+//            Document packageDocument = packageCollection.find(Filters.eq("_id", packageId)).first();
+//            if (packageDocument != null) {
+//                String packageName = packageDocument.getString("packageName");
+//                List<String> flightNumbers = packageDocument.getList("flightNumbers", String.class);
+//                List<String> trainNumbers = packageDocument.getList("trainNumbers", String.class);
+//                List<String> hotelNames = packageDocument.getList("hotelNames", String.class);
+//                String villaName = packageDocument.getString("villaName");
+//                double totalPrice = packageDocument.getDouble("totalPrice");
+//
+//                // Retrieve detailed information about flights
+//                List<Document> flights = flightCollection.find(Filters.in("flightNumber", flightNumbers)).into(new ArrayList<>());
+//
+//                // Retrieve detailed information about trains
+//                List<Document> trains = trainCollection.find(Filters.in("trainNumber", trainNumbers)).into(new ArrayList<>());
+//
+//                // Retrieve detailed information about hotels
+//                List<Document> hotels = hotelCollection.find(Filters.in("name", hotelNames)).into(new ArrayList<>());
+//
+//                // Retrieve detailed information about villas
+//                Document villa = villaCollection.find(Filters.eq("villaName", villaName)).first();
+//
+//                // Display or process the retrieved information as needed
+//                System.out.println("Package Name: " + packageName);
+//                System.out.println("Flight Numbers: " + flightNumbers);
+//                System.out.println("Train Numbers: " + trainNumbers);
+//                System.out.println("Hotel Names: " + hotelNames);
+//                System.out.println("Villa Name: " + villaName);
+//                System.out.println("Total Price: " + totalPrice);
+//                // Process other retrieved information as needed
+//            } else {
+//                throw new RuntimeException("Package with ID " + packageId + " not found.");
+//            }
+//        } catch (Exception e) {
+//            // Handle exceptions
+//            e.printStackTrace();
+//        }
+//    }
+//}
 package com.example.application.controller;
-
 import com.example.application.builders.PackageBuilder;
 import com.example.application.models.Package;
 import com.mongodb.MongoException;
@@ -11,64 +88,93 @@ import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.springframework.stereotype.Controller;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.List;
 
 @Controller
 public class PackageController {
+    private Dictionary<any, any>
+    private MongoCollection<Document> packageCollection;
     private MongoCollection<Document> flightCollection;
+    private MongoCollection<Document> trainCollection;
     private MongoCollection<Document> hotelCollection;
     private MongoCollection<Document> villaCollection;
-    private MongoCollection<Document> trainCollection;
-    private MongoCollection<Document> packageCollection;
 
     public PackageController() {
         try {
-            // Connect to MongoDB and initialize collections
             MongoClient connectedClient = MongoClients.create("mongodb://localhost:27017/");
             MongoDatabase database = connectedClient.getDatabase("Travel_Management_System");
 
+            packageCollection = database.getCollection("packages");
             flightCollection = database.getCollection("flights");
+            trainCollection = database.getCollection("trains");
             hotelCollection = database.getCollection("hotels");
             villaCollection = database.getCollection("villas");
-            trainCollection = database.getCollection("trains");
-            packageCollection = database.getCollection("packages");
         } catch (MongoException e) {
             throw new RuntimeException("Error connecting to MongoDB: " + e.getMessage());
         }
     }
 
-    public void createPackage(Map<String, String> packageDetails) {
+    public void displayPackageDetails(String packageId) {
         try {
-            // Fetch data from MongoDB collections
-            Document flightData = flightCollection.find(Filters.eq("flightNumber", packageDetails.get("flightNumber"))).first();
-            Document hotelData = hotelCollection.find(Filters.eq("name", packageDetails.get("hotelName"))).first();
-            Document villaData = villaCollection.find(Filters.eq("villaName", packageDetails.get("villaName"))).first();
-            Document trainData = trainCollection.find(Filters.eq("trainNumber", packageDetails.get("trainNumber"))).first();
+            Document packageDocument = packageCollection.find(Filters.eq("_id", packageId)).first();
+            if (packageDocument != null) {
+                String packageName = packageDocument.getString("packageName");
+                System.out.println("hiiiii");
+                List<String> flightNumbers = packageDocument.getList("flightNumbers", String.class);
+                List<String> trainNumbers = packageDocument.getList("trainNumbers", String.class);
+                List<String> hotelNames = packageDocument.getList("hotelNames", String.class);
+                String villaName = packageDocument.getString("villaName");
+                double totalPrice = packageDocument.getDouble("totalPrice");
 
-            // Create a new package using the builder pattern
-            PackageBuilder packageBuilder = new PackageBuilder();
-            packageBuilder.startNewPackage(packageDetails.get("packageName"), Double.parseDouble(packageDetails.get("totalPrice")))
-                    .addFlight(packageDetails.get("flightNumber"))
-                    .addTrain(packageDetails.get("trainNumber"))
-                    .addHotel(packageDetails.get("hotelName"))
-                    .setVilla(packageDetails.get("villaName"));
+                // Call method to build the package using retrieved data
+                Package createdPackage = buildPackage(packageName, totalPrice, flightNumbers, trainNumbers, hotelNames, villaName);
 
-            Package createdPackage = packageBuilder.build();
-
-            // Save the created package to the database
-//            Document packageDocument = new Document("name", createdPackage.getPackageName())
-//                    .append("totalPrice", createdPackage.getTotalPrice())
-//                    .append("flights", createdPackage.getFlights())
-//                    .append("trains", createdPackage.getTrains())
-//                    .append("hotels", createdPackage.getHotels())
-//                    .append("villa", createdPackage.getVillas());
-//
-//            packageCollection.insertOne(packageDocument);
-
-            // Optionally, you can perform additional operations here
+                // Display or process the created package as needed
+                System.out.println("Created Package: " + createdPackage);
+            } else {
+                throw new RuntimeException("Package with ID " + packageId + " not found.");
+            }
         } catch (Exception e) {
             // Handle exceptions
             e.printStackTrace();
         }
     }
+
+    private Package buildPackage(String packageName, double totalPrice, List<String> flightNumbers,
+                                 List<String> trainNumbers, List<String> hotelNames, String villaName) {
+        // Create a new PackageBuilder instance
+        PackageBuilder packageBuilder = new PackageBuilder();
+
+        // Start building the package
+        packageBuilder.setPackageName(packageName)
+                .setTotalPrice(totalPrice);
+
+        // Retrieve detailed information about flights
+        List<Document> flights = flightCollection.find(Filters.in("flightNumber", flightNumbers)).into(new ArrayList<>());
+        for (Document flight : flights) {
+            packageBuilder.addFlight(flight.getString("flightNumber")); // Assuming "flightNumber" is the key in flight documents
+        }
+
+        // Retrieve detailed information about trains
+        List<Document> trains = trainCollection.find(Filters.in("trainNumber", trainNumbers)).into(new ArrayList<>());
+        for (Document train : trains) {
+            packageBuilder.addTrain(train.getString("trainNumber")); // Assuming "trainNumber" is the key in train documents
+        }
+
+        // Retrieve detailed information about hotels
+        List<Document> hotels = hotelCollection.find(Filters.in("name", hotelNames)).into(new ArrayList<>());
+        for (Document hotel : hotels) {
+            packageBuilder.addHotel(hotel.getString("name")); // Assuming "name" is the key in hotel documents
+        }
+
+        // Set the villa name for the package
+        packageBuilder.setVilla(villaName);
+
+        // Build and return the package
+        return packageBuilder.build();
+    }
 }
+
+

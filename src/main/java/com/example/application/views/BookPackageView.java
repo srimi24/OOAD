@@ -10,3 +10,4 @@ public class BookPackageView extends VerticalLayout {
         add(new H1("Book Package"));
     }
 }
+

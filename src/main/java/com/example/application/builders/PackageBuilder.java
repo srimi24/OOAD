@@ -1,13 +1,6 @@
 package com.example.application.builders;
 
-import com.example.application.models.Flight;
-import com.example.application.models.Hotel;
-import com.example.application.models.Train;
-import com.example.application.models.Villa;
 import com.example.application.models.Package;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PackageBuilder {
     private Package packageInstance;
@@ -18,6 +11,16 @@ public class PackageBuilder {
 
     public PackageBuilder startNewPackage(String packageName, double totalPrice) {
         packageInstance = new Package(packageName, totalPrice);
+        return this;
+    }
+
+    public PackageBuilder setPackageName(String packageName) {
+        packageInstance.setPackageName(packageName);
+        return this;
+    }
+
+    public PackageBuilder setTotalPrice(double totalPrice) {
+        packageInstance.setTotalPrice(totalPrice);
         return this;
     }
 

@@ -21,8 +21,6 @@ public class FlightBookingStrategy implements BookingStrategy {
             // Handle MongoException in case of connection issues
             throw new RuntimeException("Error connecting to MongoDB: " + e.getMessage());
         }
-
-
     }
     @Override
     public void book(Map<String, String> bookingDetails) {

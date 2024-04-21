@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class TrainBookingStrategy implements BookingStrategy {
     private MongoCollection<Document> trainBookingCollection;
+
     public TrainBookingStrategy() {
         try {
             // Attempt to connect to MongoDB
@@ -24,6 +25,7 @@ public class TrainBookingStrategy implements BookingStrategy {
 
 
     }
+
     @Override
     public void book(Map<String, String> bookingDetails) {
         // Implement booking logic for train
