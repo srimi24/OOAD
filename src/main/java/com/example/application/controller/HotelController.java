@@ -61,7 +61,7 @@ public class HotelController {
         }
     }
 
-    private Hotel toHotel(Document doc){
+    public Hotel toHotel(Document doc){
         return new Hotel(
                 doc.getString("name"),
                 doc.getString("location"),

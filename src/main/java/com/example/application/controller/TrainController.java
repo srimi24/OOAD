@@ -53,7 +53,7 @@ public class TrainController {
 
     }
 
-    private Train toTrain(Document doc){
+    public Train toTrain(Document doc){
         return new Train(
                 doc.getString("trainNumber"),
                 doc.getString("trainName"),

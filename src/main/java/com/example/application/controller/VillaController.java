@@ -42,7 +42,7 @@ public class VillaController {
         }
     }
 
-    private Villa toVilla(Document doc) {
+    public Villa toVilla(Document doc) {
         return new Villa(
                 doc.getString("villaName"),
                 doc.getString("address"),

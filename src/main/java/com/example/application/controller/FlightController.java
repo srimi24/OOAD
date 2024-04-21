@@ -52,7 +52,7 @@ public class FlightController {
 
     }
 
-    private Flight toFlight(Document doc){
+    public Flight toFlight(Document doc){
         return new Flight(
                 doc.getString("flightNumber"),
                 doc.getString("airline"),

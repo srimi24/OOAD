@@ -55,5 +55,4 @@ public class BookFlightView extends VerticalLayout {
         flightGrid.setDataProvider(new ListDataProvider<>(flightController.getAllFlights()));
         add(flightGrid);
     }
-
 }
