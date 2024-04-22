@@ -60,6 +60,8 @@ import com.example.application.models.Train;
 import com.example.application.models.Hotel;
 import com.example.application.models.Villa;
 
+import java.util.List;
+
 public class PackageBuilder {
     private Package packageInstance;
 
@@ -67,11 +69,10 @@ public class PackageBuilder {
         packageInstance = null;
     }
 
-    public PackageBuilder startNewPackage(String packageName, double totalPrice) {
-        packageInstance = new Package(packageName, totalPrice);
+    public PackageBuilder startNewPackage(String packageName) {
+        packageInstance = new Package(packageName);
         return this;
     }
-
     public PackageBuilder setPackageName(String packageName) {
         packageInstance.setPackageName(packageName);
         return this;
@@ -99,6 +100,27 @@ public class PackageBuilder {
 
     public PackageBuilder setVilla(Villa villa) {
         packageInstance.setVilla(villa);
+        return this;
+    }
+
+    public PackageBuilder addFlights(List<Flight> flights) {
+        for (Flight flight : flights) {
+            packageInstance.addFlight(flight);
+        }
+        return this;
+    }
+
+    public PackageBuilder addTrains(List<Train> trains) {
+        for (Train train : trains) {
+            packageInstance.addTrain(train);
+        }
+        return this;
+    }
+
+    public PackageBuilder addHotels(List<Hotel> hotels) {
+        for (Hotel hotel : hotels) {
+            packageInstance.addHotel(hotel);
+        }
         return this;
     }
 

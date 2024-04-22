@@ -81,12 +81,18 @@ public class Package {
     private Villa villa;
     private double totalPrice;
 
-    public Package(String packageName, double totalPrice) {
+    public Package(String packageName) {
         this.packageName = packageName;
-        this.totalPrice = totalPrice;
-        this.flights = new ArrayList<>();
-        this.trains = new ArrayList<>();
-        this.hotels = new ArrayList<>();
+        this.flights = new ArrayList<Flight>();
+        this.trains = new ArrayList<Train>();
+        this.hotels = new ArrayList<Hotel>();
+
+        List<String> list=new ArrayList<String>();
+//        this.totalPrice = totalPrice;
+//        this.flights = flights;
+//        this.trains = trains;
+//        this.hotels = hotels;
+//        this.villa = villa;
     }
 
     public String getPackageName() {
