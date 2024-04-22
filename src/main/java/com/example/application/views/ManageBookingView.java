@@ -4,6 +4,7 @@ import com.example.application.controller.FlightController;
 import com.example.application.controller.HotelController;
 import com.example.application.controller.TrainController;
 import com.example.application.controller.VillaController;
+import com.example.application.controller.PackageController;
 import com.example.application.manager.BookingManager;
 import com.example.application.models.*;
 import com.vaadin.flow.component.Text;
@@ -31,6 +32,8 @@ public class ManageBookingView extends VerticalLayout {
     TrainController trainController;
     HotelController hotelController;
     VillaController villaController;
+
+    PackageController packageController;
     public ManageBookingView(
             FlightController flightController,
             TrainController trainController,
@@ -330,6 +333,43 @@ public class ManageBookingView extends VerticalLayout {
 
         villaBookingGrid.setDataProvider((new ListDataProvider<>(bookingManager.getAllBookingsVilla())));
         add(villaBookingGrid);
-    }
 
+// PACKAGE_BOOKINGS-------------------------------------------
+        add(new H2("All Package Bookings"));
+
+        Grid<PackageBooking> packageBookingGrid = new Grid<>(PackageBooking.class, false);
+        packageBookingGrid.addColumn(PackageBooking::getId).setHeader("Booking ID").setAutoWidth(true);
+        packageBookingGrid.addColumn(PackageBooking::getUsername).setHeader("Username").setAutoWidth(true);
+        packageBookingGrid.addColumn(PackageBooking::getPackageName).setHeader("Package Name").setAutoWidth(true);
+        // Add more columns as needed for package details
+
+        packageBookingGrid.addComponentColumn(packageBooking -> {
+            Button editButton = new Button("Edit");
+            editButton.addClickListener(e -> {
+                // Handle edit operations for package booking
+            });
+            return editButton;
+        }).setHeader("Edit").setAutoWidth(true);
+
+        packageBookingGrid.addComponentColumn(packageBooking -> {
+            Dialog dialog = new Dialog();
+            dialog.setCloseOnEsc(true);
+            dialog.setModal(true);
+            dialog.setHeaderTitle("Do you really want to delete?");
+            Button deleteButton = new Button("Delete", (e) -> dialog.open());
+            deleteButton.addThemeVariants(ButtonVariant.LUMO_ERROR);
+            Button confirmButton = new Button("Confirm", (e) -> {
+                // Handle delete operations for package booking
+//                packageController.deletePackageBooking(packageBooking);
+                packageBookingGrid.getDataProvider().refreshAll();
+                dialog.close();
+            });
+            confirmButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_ERROR);
+            confirmButton.getStyle().set("margin-right", "auto");
+            dialog.getFooter().add(confirmButton);
+            return deleteButton;
+        }).setHeader("Delete").setAutoWidth(true);
+
+//        packageBookingGrid.setDataProvider(new ListDataProvider<>(bookingManager.getAllBookingsPackage()));
+        add(packageBookingGrid);    }
 }

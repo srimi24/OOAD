@@ -152,6 +152,7 @@ public class BookingManager {
     }
 
 
+
     static boolean preFlightChecks(MongoClient mongoClient) {
         Document pingCommand = new Document("ping", 1);
         Document response = mongoClient.getDatabase("admin").runCommand(pingCommand);

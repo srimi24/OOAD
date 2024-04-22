@@ -1,17 +1,4 @@
 package com.example.application.views;//package com.example.application.views;
-//
-//import com.vaadin.flow.component.html.H1;
-//import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-//import com.vaadin.flow.router.Route;
-//
-//@Route(value="book-package" ,layout = MainLayout.class)
-//public class BookPackageView extends VerticalLayout {
-//    public BookPackageView(){
-//        add(new H1("Book Package"));
-//    }
-//}
-
-
 import com.example.application.models.*;
 import com.example.application.controller.PackageController;
 import com.example.application.models.Package;
@@ -23,7 +10,10 @@ import com.vaadin.flow.data.renderer.Renderer;
 import com.vaadin.flow.data.renderer.TextRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,38 +33,6 @@ public class BookPackageView extends VerticalLayout{
 
         packageGrid.addColumn(Package::getPackageName).setHeader("Package Name");
         packageGrid.addColumn(Package::getTotalPrice).setHeader("Total Price");
-//        packageGrid.addColumn(Package -> {
-//            // Get the flight details from the package
-//            List<Flight> flights = Package.getFlights();
-//
-//            // Create a renderer for the flight details
-//            Renderer<Package> flightRenderer = new TextRenderer<>(packageItem -> {
-//                // Construct a string with flight details for display
-//                StringBuilder flightDetails = new StringBuilder();
-//                for (Flight flight : flights) {
-//                    flightDetails.append(flight.getFlightNumber()).append(", ")
-//                            .append(flight.getAirline()).append(", ")
-//                            .append(flight.getDepartureDate()).append(", ")
-//                            .append(flight.getArrivalDate()).append(", ")
-//                            .append(flight.getDepartureAirport()).append(", ")
-//                            .append(flight.getArrivalAirport()).append(", ")
-//                            .append(flight.getNumberOfSeatsInFlight()).append(", ")
-//                            .append(flight.getPrice()).append("\n");
-//                }
-//                return flightDetails.toString();
-//            });
-//
-//            // Set the renderer to display flight details in the column
-//            return flightRenderer;
-//        }).setHeader("koo").setAutoWidth(true).setFlexGrow(1);
-//        packageGrid.addColumn(
-//                Package::getFlights) -> {
-//                    Grid<Flight> subGrid = new Grid<>(Flight.class); // Specify the bean type for Flight
-//                    subGrid.setItems(Package::getFlights());
-//                    subGrid.setColumns("flightNumber", "airline", "arrivalDate", "departureDate",
-//                            "departureAirport", "arrivalAirport", "numberOfSeatsInFlight", "price");
-//                    return subGrid;
-//                }).setHeader("Flights").setAutoWidth(true);;
 
         packageGrid.addComponentColumn(
                 package1 -> {
@@ -106,6 +64,18 @@ public class BookPackageView extends VerticalLayout{
             subGrid.setColumns("villaName", "address", "numberOfRooms", "hasPrivateBathroom", "hasKitchenFacilities", "pricePerNight");
             return subGrid;
         }).setHeader("Villa").setAutoWidth(true);;
+
+        packageGrid.addComponentColumn(package1 -> {
+            Button bookButton = new Button("Book");
+            bookButton.addClickListener(event -> {
+                // Handle booking logic here
+                Dialog bookingDialog = new Dialog();
+                bookingDialog.add(new BookPackageForm(bookingDialog, package1));
+                bookingDialog.open();
+            });
+            return bookButton;
+        }).setHeader("Book");
+
 
         // Set auto width for main grid columns
         packageGrid.getColumns().forEach(column -> column.setAutoWidth(true));
