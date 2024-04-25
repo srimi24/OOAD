@@ -1,5 +1,6 @@
 package com.example.application.controller;
 
+import com.example.application.database.MongoConnection;
 import com.example.application.models.FlightBooking;
 import com.example.application.models.Train;
 import com.example.application.models.TrainBooking;
@@ -32,24 +33,10 @@ public class TrainController {
     private MongoCollection<Document> trainBookingCollection;
 
     public TrainController() {
-        try {
-            // Attempt to connect to MongoDB
-            MongoClient connectedClient = MongoClients.create("mongodb://localhost:27017/");
 
-            // Perform pre-flight checks and handle potential issues
-            if (!preFlightChecks(connectedClient)) {
-                throw new RuntimeException("Failed to connect to MongoDB during pre-flight checks.");
-            }
-
-            System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
-            trainCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("trains");
-            trainBookingCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("trainBookings");
-            // ... rest of the initialization logic using connectedClient
-        } catch (MongoException e) {
-            // Handle MongoException in case of connection issues
-            throw new RuntimeException("Error connecting to MongoDB: " + e.getMessage());
-        }
-
+        MongoConnection mongoConnection = MongoConnection.getInstance("Travel_Management_System");
+        trainCollection = mongoConnection.getCollection("trains");
+        trainBookingCollection = mongoConnection.getCollection("trainBookings");
 
     }
 

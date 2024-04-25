@@ -337,10 +337,7 @@ public class ManageBookingView extends VerticalLayout {
 // PACKAGE_BOOKINGS-------------------------------------------
         add(new H2("All Package Bookings"));
 
-        Grid<PackageBooking> packageBookingGrid = new Grid<>(PackageBooking.class, false);
-        packageBookingGrid.addColumn(PackageBooking::getId).setHeader("Booking ID").setAutoWidth(true);
-        packageBookingGrid.addColumn(PackageBooking::getUsername).setHeader("Username").setAutoWidth(true);
-        packageBookingGrid.addColumn(PackageBooking::getPackageName).setHeader("Package Name").setAutoWidth(true);
+        Grid<PackageBooking> packageBookingGrid = new Grid<>(PackageBooking.class, true);
         // Add more columns as needed for package details
 
         packageBookingGrid.addComponentColumn(packageBooking -> {
@@ -370,6 +367,6 @@ public class ManageBookingView extends VerticalLayout {
             return deleteButton;
         }).setHeader("Delete").setAutoWidth(true);
 
-//        packageBookingGrid.setDataProvider(new ListDataProvider<>(bookingManager.getAllBookingsPackage()));
+        packageBookingGrid.setDataProvider(new ListDataProvider<>(bookingManager.getAllBookingsPackage()));
         add(packageBookingGrid);    }
 }

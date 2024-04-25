@@ -1,5 +1,6 @@
 package com.example.application.controller;
 
+import com.example.application.database.MongoConnection;
 import com.example.application.models.User;
 import com.helger.css.reader.errorhandler.DoNothingCSSInterpretErrorHandler;
 import com.mongodb.MongoException;
@@ -27,23 +28,9 @@ public class UserController {
 
     @Autowired
     public UserController(MongoClient mongoClient) {
-        try {
-            // Attempt to connect to MongoDB
-            MongoClient connectedClient = MongoClients.create("mongodb://localhost:27017/");
 
-            // Perform pre-flight checks and handle potential issues
-            if (!preFlightChecks(connectedClient)) {
-                throw new RuntimeException("Failed to connect to MongoDB during pre-flight checks.");
-            }
-
-            System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
-            userCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("users");
-            // ... rest of the initialization logic using connectedClient
-        } catch (MongoException e) {
-            // Handle MongoException in case of connection issues
-            throw new RuntimeException("Error connecting to MongoDB: " + e.getMessage());
-        }
-
+        MongoConnection mongoConnection = MongoConnection.getInstance("Travel_Management_System");
+        userCollection = mongoConnection.getCollection("users");
 
     }
     // Other controller methods for CRUD operations (Create, Update, Delete) can be

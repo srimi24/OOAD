@@ -1,5 +1,6 @@
 package com.example.application.controller;
 
+import com.example.application.database.MongoConnection;
 import com.example.application.models.Hotel;
 import com.example.application.models.HotelBooking;
 import com.mongodb.MongoException;
@@ -25,23 +26,10 @@ public class HotelController {
     private MongoCollection<Document> hotelBookingCollection;
 
     public HotelController() {
-        try {
-            // Attempt to connect to MongoDB
-            MongoClient connectedClient = MongoClients.create("mongodb://localhost:27017/");
 
-            // Perform pre-flight checks and handle potential issues
-            if (!preFlightChecks(connectedClient)) {
-                throw new RuntimeException("Failed to connect to MongoDB during pre-flight checks.");
-            }
-
-            System.out.println("=> Connection successful: " + preFlightChecks(connectedClient));
-            hotelCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("hotels");
-            hotelBookingCollection = connectedClient.getDatabase("Travel_Management_System").getCollection("hotelBookings");
-            // ... rest of the initialization logic using connectedClient
-        } catch (MongoException e) {
-            // Handle MongoException in case of connection issues
-            throw new RuntimeException("Error connecting to MongoDB: " + e.getMessage());
-        }
+        MongoConnection mongoConnection = MongoConnection.getInstance("Travel_Management_System");
+        hotelCollection = mongoConnection.getCollection("hotels");
+        hotelBookingCollection = mongoConnection.getCollection("hotelsBookings");
     }
 
     public void editAvailableRooms(String hotelName, int newNoOfDeluxeRooms, int newNoOfStandardRooms) {
