@@ -1,4 +1,4 @@
-package com.example.application.views.movie;
+package com.example.application.views;
 
 import com.example.application.controller.UserController;
 import com.example.application.views.MainLayout;
@@ -14,6 +14,10 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+
+
 
 @PageTitle("Login View")
 @Route(value = "login", layout = MainLayout.class)
@@ -47,6 +51,7 @@ public class LoginView extends Composite<VerticalLayout> {
             }
         });
 
+
         VerticalLayout layout = getContent();
         layout.setWidth("100%");
         layout.getStyle().set("flex-grow", "1");
@@ -55,5 +60,16 @@ public class LoginView extends Composite<VerticalLayout> {
         layout.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
         //loginForm.setWidth("100%");
         getContent().add(loginForm);
+
+        Button buttonPrimary = new Button();
+        buttonPrimary.addClickListener(event -> {
+            UI.getCurrent().navigate("sign-up");
+        });
+        getContent().setWidth("100%");
+        getContent().getStyle().set("flex-grow", "1");
+        buttonPrimary.setText("Register as new User?");
+        buttonPrimary.setWidth("min-content");
+        buttonPrimary.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        getContent().add(buttonPrimary);
     }
 }

@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4517e8c4-0653-464a-935b-9e49d3de5b5a" name="Changes" comment="&quot;Partial implementation of Admin functionalities&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/PackageBooking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/strategies/PackageBookingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookPackageForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/SignUpView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/PackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/PackageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/manager/BookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/manager/BookingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/models/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/models/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookPackageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/BookPackageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageBookingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageBookingView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/MainLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/MainLayout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,10 +91,10 @@
 }</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
-      <command value="mvn spring-boot:run" />
-      <command value="mvn install" />
       <command value="mvn clean install" />
+      <command value="mvn clean" />
+      <command value="mvn install" />
+      <command value="mvn spring-boot:run" />
     </option>
   </component>
   <component name="RunManager">
