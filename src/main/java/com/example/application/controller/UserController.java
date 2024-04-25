@@ -61,6 +61,25 @@ public class UserController {
         return findUser.get("role", String.class);
     }
 
+    public boolean register(String name,String address,String email,String username,String password1)
+    {
+        try
+        {
+            Document userDocument = new Document("name",name)
+                    .append("address",address)
+                    .append("email",email)
+                    .append("username",username)
+                    .append("password",password1);
+
+            userCollection.insertOne(userDocument);
+            return true;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+
     public String getRole(String Username){
         Bson filter = Filters.eq("username", Username);
         Document findUserRole = userCollection.find(filter).first();
