@@ -29,8 +29,8 @@ import java.util.Random;
 @Controller
 public class TrainController {
     private List<Train> trainList;
-    private MongoCollection<Document> trainCollection;
-    private MongoCollection<Document> trainBookingCollection;
+    private final MongoCollection<Document> trainCollection;
+    private final MongoCollection<Document> trainBookingCollection;
 
     public TrainController() {
 

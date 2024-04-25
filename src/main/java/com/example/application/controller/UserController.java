@@ -24,7 +24,7 @@ public class UserController {
 
 
     private List<User> userList;
-    private MongoCollection<Document> userCollection;
+    private final MongoCollection<Document> userCollection;
 
     @Autowired
     public UserController(MongoClient mongoClient) {

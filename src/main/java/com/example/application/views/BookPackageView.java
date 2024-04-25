@@ -48,7 +48,7 @@ public class BookPackageView extends VerticalLayout{
             subGrid.setItems(package1.getTrains());
             subGrid.setColumns("trainNumber", "trainName", "departureDate", "arrivalDate", "departureStation", "arrivalStation", "numberOfSeatsInTrain", "price");
             return subGrid;
-        }).setHeader("Trains").setAutoWidth(true);;
+        }).setHeader("Trains").setAutoWidth(true);
 
         packageGrid.addComponentColumn(package1 -> {
             Grid<Hotel> subGrid = new Grid<>(Hotel.class); // Specify the bean type for Hotel
@@ -56,14 +56,14 @@ public class BookPackageView extends VerticalLayout{
             subGrid.setColumns("name", "location", "numberOfDeluxeRooms", "deluxeRoomPricePerNight",
                     "numberOfStandardRooms", "standardRoomPricePerNight");
             return subGrid;
-        }).setHeader("Hotels").setAutoWidth(true);;
+        }).setHeader("Hotels").setAutoWidth(true);
 
         packageGrid.addComponentColumn(package1 -> {
             Grid<Villa> subGrid = new Grid<>(Villa.class); // Specify the bean type for Villa
             subGrid.setItems(package1.getVilla());
             subGrid.setColumns("villaName", "address", "numberOfRooms", "hasPrivateBathroom", "hasKitchenFacilities", "pricePerNight");
             return subGrid;
-        }).setHeader("Villa").setAutoWidth(true);;
+        }).setHeader("Villa").setAutoWidth(true);
 
         packageGrid.addComponentColumn(package1 -> {
             Button bookButton = new Button("Book");

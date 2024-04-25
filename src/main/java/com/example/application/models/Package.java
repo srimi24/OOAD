@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Package {
     private String packageName;
-    private List<Flight> flights;
-    private List<Train> trains;
-    private List<Hotel> hotels;
+    private final List<Flight> flights;
+    private final List<Train> trains;
+    private final List<Hotel> hotels;
     private Villa villa;
     private double totalPrice;
 

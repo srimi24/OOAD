@@ -27,9 +27,8 @@ import java.util.Random;
 
 @Controller
 public class FlightController {
-    private List<Flight> flightList;
-    private MongoCollection<Document> flightCollection;
-    private MongoCollection<Document> flightBookingCollection;
+    private final MongoCollection<Document> flightCollection;
+    private final MongoCollection<Document> flightBookingCollection;
 
     public FlightController() {
         MongoConnection mongoConnection = MongoConnection.getInstance("Travel_Management_System");
@@ -52,8 +51,7 @@ public class FlightController {
 
     public List<Flight> getAllFlights() {
         Bson filter = Filters.ne("numberOfSeatsInFlight", 0);
-        flightList = flightCollection.find(filter).map(this::toFlight).into(new ArrayList<>());
-        return flightList;
+        return flightCollection.find(filter).map(this::toFlight).into(new ArrayList<>());
     }
 
     public void editSeats(String flightNumber, int seats)

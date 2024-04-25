@@ -21,9 +21,8 @@ import java.util.List;
 
 @Controller
 public class HotelController {
-    private List<Hotel> hotelList;
-    private MongoCollection<Document> hotelCollection;
-    private MongoCollection<Document> hotelBookingCollection;
+    private final MongoCollection<Document> hotelCollection;
+    private final MongoCollection<Document> hotelBookingCollection;
 
     public HotelController() {
 
@@ -62,8 +61,7 @@ public class HotelController {
 
     public List<Hotel> getAllHotels() {
         Bson filter = Filters.or(Filters.ne("numberOfDeluxeRooms", 0), Filters.ne("numberOfStandardRooms", 0));
-        hotelList = hotelCollection.find(filter).map(this::toHotel).into(new ArrayList<>());
-        return hotelList;
+        return hotelCollection.find(filter).map(this::toHotel).into(new ArrayList<>());
     }
 
     public void deletehotelBooking(HotelBooking hotelBooking) {

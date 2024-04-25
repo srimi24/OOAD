@@ -9,7 +9,7 @@ import org.bson.Document;
 import java.util.Map;
 
 public class ReviewManager {
-    private MongoCollection<Document> reviewCollection;
+    private final MongoCollection<Document> reviewCollection;
     public ReviewManager() {
         try {
             // Attempt to connect to MongoDB

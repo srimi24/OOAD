@@ -9,8 +9,8 @@ import org.bson.Document;
 public class MongoConnection{
     private static MongoConnection instance = null;
 
-    private MongoClient mongoClient;
-    private MongoDatabase database;
+    private final MongoClient mongoClient;
+    private final MongoDatabase database;
 
     private MongoConnection(String dbName){
         try{

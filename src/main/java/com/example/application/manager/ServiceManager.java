@@ -21,10 +21,10 @@ public class ServiceManager {
     private List<Hotel> hotelList;
     private List<Train> trainList;
     private List<Villa> villaList;
-    private MongoCollection<Document> flightCollection;
-    private MongoCollection<Document> trainCollection;
-    private MongoCollection<Document> hotelCollection;
-    private MongoCollection<Document> villaCollection;
+    private final MongoCollection<Document> flightCollection;
+    private final MongoCollection<Document> trainCollection;
+    private final MongoCollection<Document> hotelCollection;
+    private final MongoCollection<Document> villaCollection;
 
     public ServiceManager(){
         MongoConnection mongoConnection = MongoConnection.getInstance("Travel_Management_System");

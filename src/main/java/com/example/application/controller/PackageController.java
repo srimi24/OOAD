@@ -20,15 +20,15 @@ import java.util.List;
 
 @Controller
 public class PackageController {
-    private MongoCollection<Document> packageCollection;
-    private MongoCollection<Document> flightCollection;
-    private MongoCollection<Document> trainCollection;
-    private MongoCollection<Document> hotelCollection;
-    private MongoCollection<Document> villaCollection;
-    private FlightController flightController;
-    private TrainController trainController;
-    private HotelController hotelController;
-    private VillaController villaController;
+    private final MongoCollection<Document> packageCollection;
+    private final MongoCollection<Document> flightCollection;
+    private final MongoCollection<Document> trainCollection;
+    private final MongoCollection<Document> hotelCollection;
+    private final MongoCollection<Document> villaCollection;
+    private final FlightController flightController;
+    private final TrainController trainController;
+    private final HotelController hotelController;
+    private final VillaController villaController;
 
     public PackageController() {
         try {

@@ -20,8 +20,8 @@ import java.util.List;
 @Controller
 public class VillaController {
     private List<Villa> villaList;
-    private MongoCollection<Document> villaCollection;
-    private MongoCollection<Document> villaBookingCollection;
+    private final MongoCollection<Document> villaCollection;
+    private final MongoCollection<Document> villaBookingCollection;
 
     public VillaController() {
 

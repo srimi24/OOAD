@@ -9,7 +9,7 @@ import org.bson.Document;
 import java.util.Map;
 
 public class HotelBookingStrategy implements BookingStrategy {
-    private MongoCollection<Document> hotelBookingCollection;
+    private final MongoCollection<Document> hotelBookingCollection;
 
     public HotelBookingStrategy() {
         try {

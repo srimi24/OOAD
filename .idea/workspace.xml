@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4517e8c4-0653-464a-935b-9e49d3de5b5a" name="Changes" comment="&quot;Partial implementation of Admin functionalities&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/database/MongoConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/manager/ServiceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/FlightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/FlightController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/TrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/TrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/VillaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/VillaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/manager/BookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/manager/BookingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageBookingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageBookingView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageServiceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/ManageServiceView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +127,7 @@
       <workItem from="1713756798953" duration="22003000" />
       <workItem from="1713799775723" duration="12933000" />
       <workItem from="1714021932453" duration="5686000" />
-      <workItem from="1714057298415" duration="595000" />
+      <workItem from="1714057298415" duration="1208000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Able to navigate to another page when login is clicked&quot;">
       <option name="closed" value="true" />

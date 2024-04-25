@@ -18,16 +18,16 @@ import java.util.List;
 
 public class BookingManager {
     private List<FlightBooking> flightBookingList;
-    private MongoCollection<Document> flightBookingCollection;
+    private final MongoCollection<Document> flightBookingCollection;
 
     private List<TrainBooking> trainBookingList;
-    private MongoCollection<Document> trainBookingCollection;
+    private final MongoCollection<Document> trainBookingCollection;
 
     private List<HotelBooking> hotelBookingList;
-    private MongoCollection<Document> hotelBookingCollection;
+    private final MongoCollection<Document> hotelBookingCollection;
 
     private List<VillaBooking> villaBookingList;
-    private MongoCollection<Document> villaBookingCollection;
+    private final MongoCollection<Document> villaBookingCollection;
 
 
     public BookingManager() {
